@@ -656,5 +656,20 @@ const products = [
       "apparel",
       "mens"
     ]
-  }
+  },
+  {
+    id: "id1",
+    image: "images/products/backpack.jpg",
+    name: "Men's Black Backpack",
+    rating: {
+      stars: 3.5,
+      count: 420
+    },
+    priceCents: 3090,
+    keywords: [
+      "backpack",
+      "waterproof",
+      "mens"
+    ]
+  },
 ];
