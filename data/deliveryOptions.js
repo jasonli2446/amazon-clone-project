@@ -1,5 +1,4 @@
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
-import { isWeekend } from '../scripts/utils/dates';
 
 export const deliveryOptions = [{
   id: '1',
@@ -25,6 +24,11 @@ export function getDeliveryOption(deliveryOptionId) {
   });
 
   return deliveryOption || deliveryOptions[0];
+}
+
+function isWeekend(date) {
+  const dayOfWeek = date.format('dddd');
+  return dayOfWeek === 'Saturday' || dayOfWeek === 'Sunday';
 }
 
 export function calculateDeliveryDate(deliveryOption) {
