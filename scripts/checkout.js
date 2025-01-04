@@ -10,11 +10,12 @@ export function renderPage() {
   renderPaymentSummary();
 }
 
-Promise.all([
-  loadProductsFetch(),
-  new Promise((resolve) => {
+async function loadPage() {
+  await loadProductsFetch();
+
+  await new Promise((resolve) => {
     loadCart(resolve);
-  })
-]).then(() => {
+  });
   renderPage();
-});
+}
+loadPage();
