@@ -87,8 +87,9 @@ export function loadProductsFetch() {
       }
       return new Product(productDetails);
     });
-
     console.log('load products');
+  }).catch((error) => {
+    console.error('Failed to load products. Try again later.');
   });
   return promise;
 }
@@ -113,6 +114,10 @@ const xhr = new XMLHttpRequest();
     console.log('load products');
 
     fun();
+  });
+
+  xhr.addEventListener('error', (error) => {
+    console.error('Failed to load products. Try again later.');
   });
 
   xhr.open('GET', 'https://supersimplebackend.dev/products');

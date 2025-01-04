@@ -11,9 +11,17 @@ export function renderPage() {
 }
 
 async function loadPage() {
+  try {
+    await loadProductsFetch();
+    const value = await new Promise((resolve) => {
+      loadCart(resolve);
+    });
+  } catch (error) {
+    console.error('Unexpected error. Please try again later.');
+  }
   await loadProductsFetch();
 
-  await new Promise((resolve) => {
+  const value = await new Promise((resolve) => {
     loadCart(resolve);
   });
   renderPage();
